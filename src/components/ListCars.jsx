@@ -1,19 +1,10 @@
+import { CarCard } from './CarCard';
+
 export const ListCars = ({ data }) => {
   return (
     <ul>
-      {data.map(({ mileage, img, description, make, model }) => {
-        return (
-          <li key={mileage}>
-            <img src={img} alt={description} width={400} />
-            <p>
-              {make}
-              {model}
-            </p>
-            <ul>
-              <li></li>
-            </ul>
-          </li>
-        );
+      {data.map(item => {
+        return <CarCard key={item.mileage} dataCar={item} />;
       })}
     </ul>
   );

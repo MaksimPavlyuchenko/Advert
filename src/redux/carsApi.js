@@ -8,6 +8,7 @@ const searchParams = new URLSearchParams({
 
 export const carsApi = createApi({
   reducerPath: 'carsApi',
+  tagTypes: ['Cars'],
   baseQuery: fetchBaseQuery({
     baseUrl: `https://652fcfb66c756603295db520.mockapi.io`,
   }),
@@ -15,6 +16,7 @@ export const carsApi = createApi({
     getCars: build.query({
       query: (page = '') =>
         `/adverts?${page && `page=${page}`}&limit=8&${searchParams}`,
+      providesTags: ['Cars'],
     }),
   }),
 });
